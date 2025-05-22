@@ -1,0 +1,61 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           macs
+version:        0.1.0.0
+synopsis:       Multimedia Aggregated Collection Service
+description:    Please see the README on GitHub at <https://github.com/githubuser/macs#readme>
+homepage:       https://github.com/Ordluks/macs#readme
+bug-reports:    https://github.com/Ordluks/macs/issues
+author:         Ordluks
+maintainer:     Ordluks
+copyright:      2025 Yakov Basaranovich
+license:        GPL-3-only
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/Ordluks/macs
+
+library
+  exposed-modules:
+      MACS.Core
+      MACS.Core.CommonTypes
+  other-modules:
+      Paths_macs
+  hs-source-dirs:
+      src
+  default-extensions:
+      DeriveGeneric
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      acid-state
+    , base >=4.7 && <5
+    , bytestring
+    , cereal >=0.5.8.3
+    , containers
+    , lens
+    , network
+    , safecopy
+    , uuid
+  default-language: Haskell2010
+
+test-suite macs-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_macs
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , macs
+  default-language: Haskell2010
